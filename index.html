@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Neural Academy: KI-natives Mathe-Nachhilfe-Institut</title>
+<meta name="description" content="The Neural Academy verbindet menschliches Tutoring mit einer persönlichen KI-Wissensdatenbank. Schüler:innen laden ihr Material hoch, die KI stellt Rückfragen statt Lösungen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;800;900&family=Inter:wght@300;400;600;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --font-headline: 'Outfit', 'Poppins', Arial, sans-serif;
+    --font-system:   'Inter', -apple-system, system-ui, Arial, sans-serif;
+
+    --text-caption1:    12px;
+    --text-footnote:    13px;
+    --text-subhead:     15px;
+    --text-body:        17px;
+    --text-title3:      20px;
+    --text-title2:      22px;
+    --text-large-title: 34px;
+    --text-display:     48px;
+    --text-condensed-xl: 56px;
+
+    --space-1:  4px;
+    --space-2:  8px;
+    --space-3:  12px;
+    --space-4:  16px;
+    --space-5:  20px;
+    --space-6:  24px;
+    --space-8:  32px;
+    --space-10: 40px;
+    --space-12: 48px;
+    --space-16: 64px;
+    --space-20: 80px;
+    --space-24: 96px;
+
+    --institut-green:       #1E9E5C;
+    --institut-green-hover: #17824B;
+    --institut-green-tint:  rgba(30,158,92,0.08);
+
+    --ink:      #16231C;
+    --grey-44:  #66716B;
+    --grey-86:  #DCE8E0;
+    --grey-96:  #EEF5F0;
+    --bg-page:      #F5FAF7;
+    --bg-surface:   #FFFFFF;
+    --bg-inset:     var(--grey-96);
+
+    --text-primary:   var(--ink);
+    --text-secondary: rgba(22,35,28,0.65);
+    --text-muted:     rgba(22,35,28,0.50);
+    --text-tertiary:  rgba(22,35,28,0.40);
+    --text-inverse:   #FFFFFF;
+
+    --border:          var(--grey-86);
+    --border-hairline: rgba(22,35,28,0.07);
+    --border-divider:  rgba(22,35,28,0.05);
+
+    --color-warning: #F2A93B;
+    --color-info:    var(--ink);
+
+    --radius-sm:  10px;
+    --radius-md:  14px;
+    --radius-lg:  18px;
+    --radius-xl:  22px;
+    --radius-2xl: 28px;
+    --radius-none: 0;
+    --radius-full: 9999px;
+
+    --hover-state:   rgba(22,35,28,0.04);
+    --pressed-state: rgba(22,35,28,0.08);
+    --focus-ring:    var(--institut-green);
+
+    --shadow-xs: 0 1px 2px rgba(22,35,28,0.05);
+    --shadow-sm: 0 2px 8px rgba(22,35,28,0.07), 0 1px 3px rgba(22,35,28,0.04);
+    --shadow-md: 0 4px 16px rgba(22,35,28,0.09), 0 2px 6px rgba(22,35,28,0.04);
+    --shadow-lg: 0 8px 32px rgba(22,35,28,0.11), 0 4px 12px rgba(22,35,28,0.05);
+
+    --ease-spring: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --ease-out:    cubic-bezier(0, 0, 0.2, 1);
+    --dur-instant: 100ms;
+    --dur-fast:    200ms;
+    --dur-normal:  300ms;
+  }
+
+  .dark, [data-theme="dark"] {
+    --bg-page:      #0E1712;
+    --bg-surface:   #17221C;
+    --bg-inset:     #26332B;
+
+    --text-primary:   #FFFFFF;
+    --text-secondary: rgba(235,245,240,0.6);
+    --text-muted:     rgba(235,245,240,0.4);
+    --text-tertiary:  rgba(235,245,240,0.28);
+
+    --border:          rgba(255,255,255,0.12);
+    --border-hairline: rgba(255,255,255,0.1);
+    --border-divider:  rgba(255,255,255,0.07);
+
+    --hover-state:   rgba(255,255,255,0.06);
+    --pressed-state: rgba(255,255,255,0.10);
+
+    --ink: #FFFFFF;
+    --institut-green: #34C67F;
+    --institut-green-tint: rgba(52,198,127,0.12);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg-page);
+    color: var(--text-primary);
+    font-family: var(--font-system);
+    font-size: var(--text-body);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; }
+  a { color: inherit; }
+  .wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+  }
+  :focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--institut-green);
+    border-radius: var(--radius-sm);
+  }
+
+  /* ── Typography ── */
+  .eyebrow {
+    font-family: var(--font-system);
+    font-weight: 600;
+    font-size: var(--text-caption1);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--institut-green);
+  }
+  .display {
+    font-family: var(--font-headline);
+    font-weight: 900;
+    font-size: clamp(34px, 6vw, var(--text-condensed-xl));
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    color: var(--text-primary);
+    margin: var(--space-4) 0 var(--space-5);
+  }
+  .display .accent { color: var(--institut-green); }
+  .title2 {
+    font-family: var(--font-headline);
+    font-weight: 700;
+    font-size: var(--text-title2);
+    color: var(--text-primary);
+    margin: 0 0 var(--space-3);
+  }
+  .lede {
+    font-size: var(--text-title3);
+    font-weight: 300;
+    color: var(--text-secondary);
+    max-width: 62ch;
+    line-height: 1.5;
+  }
+  .body-text {
+    color: var(--text-secondary);
+    max-width: 65ch;
+  }
+  .quiet {
+    font-family: var(--font-system);
+    font-weight: 300;
+    color: var(--text-muted);
+    font-size: var(--text-footnote);
+  }
+
+  /* ── Buttons ── */
+  .btn-primary, .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-system);
+    font-weight: 600;
+    font-size: var(--text-subhead);
+    padding: var(--space-3) var(--space-5);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    min-height: 44px;
+    transition: transform var(--dur-instant) var(--ease-out), opacity var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out);
+    cursor: pointer;
+    border: none;
+  }
+  .btn-primary { background: var(--ink); color: var(--text-inverse); }
+  .btn-primary:hover { opacity: 0.88; }
+  .btn-primary:active { transform: scale(0.97); }
+  .btn-secondary { background: transparent; color: var(--text-primary); border: 1px solid var(--border); }
+  .btn-secondary:hover { background: var(--hover-state); }
+  .btn-secondary:active { transform: scale(0.97); }
+
+  /* ── Nav ── */
+  .topbar {
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: color-mix(in srgb, var(--bg-page) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border-hairline);
+  }
+  .brand {
+    font-family: var(--font-headline);
+    font-weight: 900;
+    font-size: var(--text-title3);
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    color: var(--text-primary);
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+  }
+  .brand .accent { color: var(--institut-green); }
+  .topbar-links { display: none; gap: var(--space-6); }
+  .topbar-link {
+    font-family: var(--font-system);
+    font-weight: 400;
+    font-size: var(--text-subhead);
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: var(--space-2) 0;
+    border-bottom: 2px solid transparent;
+  }
+  .topbar-link:hover { color: var(--text-primary); }
+  .topbar-actions { display: flex; align-items: center; gap: var(--space-3); }
+  @media (min-width: 860px) {
+    .topbar-links { display: flex; }
+  }
+
+  .theme-toggle {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-full);
+    width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: var(--shadow-xs);
+  }
+
+  /* ── Sections ── */
+  section { padding: var(--space-24) 0; }
+  .hero { padding-top: var(--space-16); padding-bottom: var(--space-20); }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-8); }
+  .hero-note { margin-top: var(--space-6); }
+
+  .section-alt { background: var(--bg-surface); border-top: 1px solid var(--border-hairline); border-bottom: 1px solid var(--border-hairline); }
+
+  .steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+    margin-top: var(--space-10);
+  }
+  @media (min-width: 780px) {
+    .steps { grid-template-columns: repeat(3, 1fr); }
+  }
+  .step-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-hairline);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-sm);
+  }
+  .step-num {
+    font-family: var(--font-headline);
+    font-weight: 900;
+    font-size: var(--text-title2);
+    color: var(--institut-green);
+    display: block;
+    margin-bottom: var(--space-3);
+  }
+  .step-card h3 {
+    font-family: var(--font-headline);
+    font-weight: 700;
+    font-size: var(--text-title3);
+    margin: 0 0 var(--space-2);
+    color: var(--text-primary);
+  }
+  .step-card p { margin: 0; color: var(--text-secondary); font-size: var(--text-subhead); }
+
+  .principle {
+    border-radius: var(--radius-none);
+    border-left: 4px solid var(--color-info);
+    background: var(--bg-surface);
+    padding: var(--space-6) var(--space-6);
+    margin-top: var(--space-8);
+    max-width: 68ch;
+  }
+  .principle strong {
+    display: block;
+    font-family: var(--font-headline);
+    font-size: var(--text-title3);
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+  }
+  .principle p { margin: 0; color: var(--text-secondary); }
+
+  .audience-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    margin-top: var(--space-10);
+  }
+  @media (min-width: 780px) {
+    .audience-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  .audience-card {
+    background: var(--bg-inset);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+  }
+  .audience-card h3 {
+    font-family: var(--font-headline);
+    font-size: var(--text-title3);
+    font-weight: 700;
+    margin: 0 0 var(--space-2);
+  }
+  .audience-card p { margin: 0; color: var(--text-secondary); font-size: var(--text-subhead); }
+
+  .demo-panel {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    background: var(--ink);
+    color: var(--text-inverse);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-10);
+    margin-top: var(--space-10);
+  }
+  @media (min-width: 780px) {
+    .demo-panel { flex-direction: row; align-items: center; justify-content: space-between; }
+  }
+  .demo-panel h3 {
+    font-family: var(--font-headline);
+    font-weight: 800;
+    font-size: var(--text-title1, 28px);
+    margin: 0 0 var(--space-2);
+  }
+  .demo-panel p { margin: 0; color: rgba(255,255,255,0.72); max-width: 52ch; }
+  .demo-panel .btn-primary { background: var(--institut-green); color: var(--ink); flex-shrink: 0; }
+  .demo-panel .btn-primary:hover { background: var(--institut-green-hover); color: var(--text-inverse); }
+
+  footer {
+    border-top: 1px solid var(--border-hairline);
+    padding: var(--space-12) 0 var(--space-16);
+  }
+  .footer-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+  @media (min-width: 780px) {
+    .footer-grid { flex-direction: row; justify-content: space-between; align-items: flex-start; }
+  }
+  .footer-links { display: flex; gap: var(--space-5); flex-wrap: wrap; }
+  .footer-links a { text-decoration: none; color: var(--text-secondary); font-size: var(--text-subhead); }
+  .footer-links a:hover { color: var(--text-primary); }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="wrap" style="display:flex; align-items:center; justify-content:space-between; width:100%;">
+    <a href="#top" class="brand">The Neural <span class="accent">Academy</span></a>
+    <div class="topbar-links">
+      <a class="topbar-link" href="#methode">Methode</a>
+      <a class="topbar-link" href="#ablauf">Second Brain</a>
+      <a class="topbar-link" href="#fuer-wen">Für wen</a>
+      <a class="topbar-link" href="#demo">Demo</a>
+    </div>
+    <div class="topbar-actions">
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Darstellung umschalten">
+        <span id="theme-icon">🌙</span>
+      </button>
+      <!-- TODO: echte Login-URL der deployten App eintragen, sobald Domain/Railway-URL feststeht -->
+      <a class="btn-secondary" href="#login-todo">Login</a>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">KI-natives Mathe-Nachhilfe-Institut</p>
+      <h1 class="display">Mathe wirklich <span class="accent">verstehen</span>.<br>Nicht nur lösen.</h1>
+      <p class="lede">The Neural Academy verbindet menschliches Tutoring mit einem persönlichen Second Brain. Schüler:innen laden ihr eigenes Material hoch, eine KI baut daraus eine strukturierte Wissensdatenbank und begleitet sie mit Rückfragen statt fertigen Lösungen.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#demo">Demo ausprobieren</a>
+        <a class="btn-secondary" href="#methode">Wie es funktioniert</a>
+      </div>
+      <p class="quiet hero-note">Mathematik, ab Klasse 8. Aktuell in der Pilotphase.</p>
+    </div>
+  </section>
+
+  <section id="methode" class="section-alt">
+    <div class="wrap">
+      <p class="eyebrow">Methode</p>
+      <h2 class="title2" style="font-size: var(--text-large-title); margin-top: var(--space-2);">Wie es funktioniert</h2>
+      <p class="body-text">Ein Tutor begleitet die Lernenden. Die KI übernimmt die Arbeit, die sich wiederholt: Material strukturieren, Rückfragen stellen, Lernzettel bauen.</p>
+
+      <div class="steps">
+        <div class="step-card">
+          <span class="step-num">01</span>
+          <h3>Material hochladen</h3>
+          <p>Fotos vom Heft, Arbeitsblätter, Buchseiten. So wie das Material tatsächlich vorliegt.</p>
+        </div>
+        <div class="step-card">
+          <span class="step-num">02</span>
+          <h3>Wissensdatenbank entsteht</h3>
+          <p>Die KI erkennt Quellen, Konzepte und Zusammenhänge und ordnet sie in einem persönlichen Wiki.</p>
+        </div>
+        <div class="step-card">
+          <span class="step-num">03</span>
+          <h3>Sokratisch lernen</h3>
+          <p>Chat mit Rückfragen statt Lösungen. Pinnwand generiert Lernzettel, Klausurpläne und Karteikarten.</p>
+        </div>
+      </div>
+
+      <div class="principle">
+        <strong>Die KI gibt nie direkt die Lösung.</strong>
+        <p>Sie stellt Rückfragen, bis die Lernenden selbst auf die Lösung kommen, und bewertet erst nach einem eigenen Versuch. Jede gelöste Aufgabe endet mit einer kurzen Reflexionsfrage. Diese Regel ist der Kern der Methode und gilt für jedes Fach und jede Aufgabe gleich.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="fuer-wen">
+    <div class="wrap">
+      <p class="eyebrow">Für wen</p>
+      <h2 class="title2" style="font-size: var(--text-large-title); margin-top: var(--space-2);">Für Schüler:innen, die verstehen wollen</h2>
+      <p class="body-text">Der Fokus liegt auf Mathematik ab der 8. Klasse. Geeignet für Lernende, die eigenständiges Denken üben wollen, nicht nur schnelle Antworten suchen.</p>
+
+      <div class="audience-grid">
+        <div class="audience-card">
+          <h3>Für Schüler:innen</h3>
+          <p>Ein Second Brain, das mitwächst. Eigenes Material wird zur eigenen Wissensdatenbank, jederzeit abrufbar zum Lernen und Wiederholen.</p>
+        </div>
+        <div class="audience-card">
+          <h3>Für Eltern</h3>
+          <p>Ein Tutor begleitet den Prozess. Die KI ersetzt keine Lehrperson, sie übernimmt die Fleißarbeit rund um Material und Wiederholung.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="demo" class="section-alt">
+    <div class="wrap">
+      <p class="eyebrow">Live-Demo</p>
+      <h2 class="title2" style="font-size: var(--text-large-title); margin-top: var(--space-2);">Second Brain in Aktion</h2>
+      <p class="body-text">Ein Demo-Zugang mit vorbereitetem Testmaterial zeigt Wiki und Chat in der Praxis. Kein eigener Upload nötig.</p>
+
+      <div class="demo-panel">
+        <div>
+          <h3>Demo-Zugang testen</h3>
+          <p>Wiki mit Quellen, Entitäten und Konzepten durchsuchen und den sokratischen Chat direkt ausprobieren, ohne eigenes Material hochzuladen.</p>
+        </div>
+        <!-- TODO: Demo-Route/Account ist noch nicht gebaut. Architekturentscheidung im tutoring_second_brain-Repo (auth.py/app.py) offen: read-only Demo-Account vs. separater Mock. Erst mit Jonas klären, dann hier verlinken. -->
+        <a class="btn-primary" href="#demo-todo">Demo starten</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <a href="#top" class="brand">The Neural <span class="accent">Academy</span></a>
+      <p class="quiet" style="margin-top: var(--space-2);">KI-natives Mathe-Nachhilfe-Institut.</p>
+    </div>
+    <div class="footer-links">
+      <a href="#methode">Methode</a>
+      <a href="#fuer-wen">Für wen</a>
+      <a href="#demo">Demo</a>
+      <!-- TODO: echte Kontakt-E-Mail eintragen, sobald Domain feststeht -->
+      <a href="#kontakt-todo">Kontakt</a>
+      <a href="#login-todo">Login</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleTheme() {
+    const isDark = document.documentElement.classList.toggle('dark');
+    document.getElementById('theme-icon').textContent = isDark ? '☀️' : '🌙';
+    try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch (e) {}
+  }
+  (function () {
+    let stored = null;
+    try { stored = localStorage.getItem('theme'); } catch (e) {}
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (stored === 'dark' || (!stored && prefersDark)) {
+      document.documentElement.classList.add('dark');
+      document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('theme-icon').textContent = '☀️';
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>
