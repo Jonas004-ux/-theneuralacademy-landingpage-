@@ -306,21 +306,46 @@ section { padding: var(--space-24) 0; }
 }
 .principle p { margin: 0; color: var(--text-secondary); }
 
-/* Callout für die Pilotphasen-Ankündigung im Hero: das eine Grün-Moment der Seite. */
-.cta-callout {
-  border-radius: var(--radius-none);
-  border-left: 4px solid var(--institut-green);
-  background: var(--institut-green-tint);
-  padding: var(--space-5) var(--space-6);
-  margin-top: var(--space-8);
-  max-width: 68ch;
+/* Prominenter Pilotphasen-CTA im Hero: der eine Bold-Moment der Seite, grüner Button auf Ink. */
+.cta-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  background: var(--ink);
+  color: var(--text-inverse);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-10);
+  margin-top: var(--space-10);
 }
-.cta-callout p {
+@media (min-width: 780px) {
+  .cta-panel { flex-direction: row; align-items: center; justify-content: space-between; gap: var(--space-8); }
+}
+.cta-panel p {
   margin: 0;
-  color: var(--text-primary);
+  color: var(--text-inverse);
   font-size: var(--text-subhead);
   font-weight: 600;
-  line-height: 1.5;
+  line-height: 1.55;
+  max-width: 56ch;
+}
+.cta-panel .btn-primary {
+  background: var(--institut-green);
+  color: var(--ink);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.cta-panel .btn-primary:hover { background: var(--institut-green-hover); color: var(--text-inverse); }
+
+/* Schlichter Schluss-CTA am Seitenende, im normalen Seiten-Look. */
+.cta-closing {
+  text-align: center;
+}
+.cta-closing p {
+  margin: 0 0 var(--space-5);
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: var(--text-large-title);
+  color: var(--text-primary);
 }
 
 .audience-grid {
