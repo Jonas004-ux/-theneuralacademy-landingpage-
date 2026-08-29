@@ -4,9 +4,10 @@
 Institut). Eigenständiges Projekt, technisch getrennt vom Tutoring-Tool in
 `../tutoring_second_brain/`.
 
-Statische Single-Page-Site, kein Build-Tooling: `index.html` enthält Markup, Styles
-und das kleine Theme-Toggle-Script inline. Kann direkt auf jedem statischen Host
-(Netlify, Vercel, GitHub Pages, Railway Static) deployt werden.
+Statische Mehrseiten-Site, kein Build-Tooling: `index.html`, `impressum.html`,
+`datenschutz.html` teilen sich `assets/theme.css` (Design-Tokens + Komponenten) und
+je ein inline Theme-Toggle-Script. Kann direkt auf jedem statischen Host (Netlify,
+Vercel, GitHub Pages, Railway Static) deployt werden.
 
 ## Design-System
 
@@ -20,6 +21,12 @@ neu erfinden.
 1. **Domain**: noch nicht registriert. Sobald entschieden, `<title>`, Meta-Tags und
    die Railway-URLs unten durch die echte Domain ersetzen.
 2. **Kontakt** (`#kontakt-todo`, Footer): noch keine echte Kontakt-E-Mail hinterlegt.
+3. **Impressum / Datenschutz** (`impressum.html`, `datenschutz.html`): nur Platzhalter
+   (`[Platzhalter: ...]`), rechtlich noch nicht verwendbar. Echte Angaben (Name,
+   Anschrift, Verantwortlicher, Datenverarbeitung) müssen vor dem Launch rein.
+4. **Gründer-Team-Section** (`index.html#team`): Foto ist ein SVG-Platzhalter, der
+   Bio-Text ein `[Platzhalter]`. Echtes Foto + von Jonas selbst geschriebener Text
+   fehlen noch.
 
 Erledigt: Login-Button (Nav + Footer) zeigt auf
 `https://web-production-b1ad9.up.railway.app/login`. Der Demo-Button zeigt auf
@@ -44,9 +51,15 @@ oder ältere Favicon-Fallbacks) — bei Bedarf ergänzen.
 
 ## Seitenstruktur (aktueller Stand)
 
-Hero → Methode (3-Schritt-Ablauf + sokratisches Grundprinzip als Callout) → Für wen
-(Schüler:innen / Eltern) → Live-Demo-CTA → Footer.
+`index.html`: Hero (inkl. Pilotphasen-CTA-Callout) → Ansatz (KI-Einsatz + Vorstellung
+der "Intelligenten Bibliothek") → Gründer-Team (Platzhalter) → Für wen (Fach +
+Jahrgangsstufe) → Footer.
 
-Noch nicht abgestimmt mit Jonas, da bislang nur "grober Überblick" spezifiziert war.
-Kandidaten für weitere Abschnitte, falls gewünscht: Preise/Pilotphase-Details,
-Über-uns/Tutor-Vorstellung, FAQ.
+Header-Nav bewusst nur mit echten Sprungzielen: Impressum, Datenschutz, Login, Demo.
+Keine In-Page-Anchor-Links im Nav mehr (Methode/Für-wen/Second-Brain-Demo-Anchor
+entfernt) — die Sections existieren weiterhin auf der Seite, sind aber nur noch über
+den Footer oder direktes Scrollen erreichbar, nicht mehr über die Kopfzeile.
+
+"Second Brain" wurde als Produktname überall (Landingpage + Tool-Frontend in
+`../tutoring_second_brain/templates/_student_base.html`) durch "Intelligente
+Bibliothek" ersetzt.

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Datenschutz: The Neural Academy</title>
+<meta name="description" content="Datenschutzerklärung von The Neural Academy.">
+<link rel="icon" type="image/svg+xml" href="assets/logo-icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;800;900&family=Inter:wght@300;400;600;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/theme.css">
+</head>
+<body class="legal-page">
+
+<nav class="topbar">
+  <div class="wrap" style="display:flex; align-items:center; justify-content:space-between; width:100%;">
+    <a href="index.html#top" class="brand"><img src="assets/logo-icon.svg" alt="" width="32" height="32">The Neural <span class="accent">Academy</span></a>
+    <div class="topbar-links">
+      <a class="topbar-link" href="impressum.html">Impressum</a>
+      <a class="topbar-link" href="datenschutz.html">Datenschutz</a>
+    </div>
+    <div class="topbar-actions">
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Darstellung umschalten">
+        <span id="theme-icon">🌙</span>
+      </button>
+      <a class="btn-secondary" href="https://web-production-b1ad9.up.railway.app/login">Login</a>
+      <a class="btn-primary" href="https://web-production-b1ad9.up.railway.app/demo">Demo starten</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap" style="padding-top: var(--space-16); padding-bottom: var(--space-20);">
+    <p class="eyebrow">Rechtliches</p>
+    <h1 class="title-large">Datenschutzerklärung</h1>
+
+    <h2>Verantwortlicher</h2>
+    <p class="body-text">[Platzhalter: Name, Anschrift, Kontakt]</p>
+
+    <h2>Verarbeitung hochgeladener Materialien</h2>
+    <p class="body-text">[Platzhalter: welche Daten Schüler:innen hochladen, wie sie durch die KI verarbeitet werden, wo sie gespeichert werden und wie lange.]</p>
+
+    <h2>Rechte der Betroffenen</h2>
+    <p class="body-text">[Platzhalter: Auskunft, Berichtigung, Löschung, Widerspruch.]</p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <a href="index.html#top" class="brand"><img src="assets/logo-icon.svg" alt="" width="32" height="32">The Neural <span class="accent">Academy</span></a>
+      <p class="quiet" style="margin-top: var(--space-2);">KI-natives Mathe-Nachhilfe-Institut.</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html#ansatz">Ansatz</a>
+      <a href="index.html#team">Team</a>
+      <a href="index.html#fuer-wen">Für wen</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="#kontakt-todo">Kontakt</a>
+      <a href="https://web-production-b1ad9.up.railway.app/login">Login</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleTheme() {
+    const isDark = document.documentElement.classList.toggle('dark');
+    document.getElementById('theme-icon').textContent = isDark ? '☀️' : '🌙';
+    try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch (e) {}
+  }
+  (function () {
+    let stored = null;
+    try { stored = localStorage.getItem('theme'); } catch (e) {}
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (stored === 'dark' || (!stored && prefersDark)) {
+      document.documentElement.classList.add('dark');
+      document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('theme-icon').textContent = '☀️';
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>
