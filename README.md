@@ -33,9 +33,17 @@ Im Code mit `<!-- TODO: ... -->`-Kommentaren markiert:
    Jonas geklärt werden, bevor daran gebaut wird, insbesondere weil das nicht-
    verhandelbare sokratische Chat-Verhalten dabei erhalten bleiben muss.
 4. **Kontakt** (`#kontakt-todo`, Footer): noch keine echte Kontakt-E-Mail hinterlegt.
-5. **Logo**: reiner Text-Wortmarke als Platzhalter (Outfit 900, "Academy" in Campus
-   Green), wie in `frontend-design.md` §9 vorgesehen. Durch echtes Logo-Asset
-   ersetzen, sobald eins existiert.
+
+## Logo
+
+`assets/logo-icon.svg`: geometrisches N-Monogramm (zwei weiße Balken, grüne
+Diagonale) auf abgerundetem Ink-Badge. In Nav, Footer und als Favicon eingebunden.
+Entwurf und verworfene Alternativen (Wissensnetz-Richtung, Tablet-Erstentwurf) liegen
+als Design-Components-Quellen unter `design/logo/` (`Main.dc.html`,
+`DirectionB.dc.html`, `canvas.json`) und im veröffentlichten Canvas
+[The Neural Academy Logomark](https://claude.ai/code/artifact/6e2cbdf6-34d8-4edc-b54c-72cbfc0f9cdd).
+Aktuell nur als SVG vorhanden, noch keine PNG-Exporte (z. B. für Social-Share-Bilder
+oder ältere Favicon-Fallbacks) — bei Bedarf ergänzen.
 
 ## Seitenstruktur (aktueller Stand)
 

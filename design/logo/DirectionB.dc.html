@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@800;900&family=Inter:wght@400;600&display=swap">
+  <style>
+    body { margin: 0; }
+    .page {
+      width: 420px;
+      box-sizing: border-box;
+      padding: 40px;
+      background: #F5FAF7;
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      color: #16231C;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #1E9E5C;
+      margin: 0 0 6px;
+    }
+    .headline {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 24px;
+      letter-spacing: -0.01em;
+      margin: 0 0 6px;
+      color: #16231C;
+    }
+    .rationale {
+      font-size: 13px;
+      line-height: 1.5;
+      color: #46524C;
+      margin: 0;
+      max-width: 42ch;
+    }
+    .card {
+      border-radius: 18px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 2px 8px rgba(22,35,28,0.07), 0 1px 3px rgba(22,35,28,0.04);
+    }
+    .card-label { font-size: 12px; color: #66716B; font-family: 'Inter', sans-serif; }
+    .row { display: flex; gap: 16px; align-items: center; justify-content: center; flex-wrap: wrap; }
+    .size-frame { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+    a { color: #16231C; }
+    a:hover { color: #1E9E5C; }
+  </style>
+</helmet>
+
+<div class="page">
+
+  <div>
+    <p class="eyebrow">Richtung B</p>
+    <h1 class="headline">Monogramm</h1>
+    <p class="rationale">Ein eigenes, geometrisches N für Neural Academy. Zwei Balken in Weiß, eine Diagonale in Grün: der eine Akzentstrich, den sich die Marke sonst auch nur einmal pro Ansicht erlaubt.</p>
+  </div>
+
+  <div class="card" style="background:#16231C;">
+    <svg width="180" height="180" viewBox="0 0 200 200">
+      <rect x="10" y="10" width="180" height="180" rx="40" fill="#16231C"></rect>
+      <rect x="55" y="50" width="22" height="100" rx="4" fill="#FFFFFF"></rect>
+      <rect x="123" y="50" width="22" height="100" rx="4" fill="#FFFFFF"></rect>
+      <line x1="68" y1="58" x2="132" y2="142" stroke="{{accent}}" stroke-width="24" stroke-linecap="square"></line>
+    </svg>
+    <span class="card-label" style="color:#9CA6A0;">Primär, auf Hell</span>
+  </div>
+
+  <div class="card" style="background:#FFFFFF;">
+    <svg width="180" height="180" viewBox="0 0 200 200">
+      <rect x="10" y="10" width="180" height="180" rx="40" fill="#FFFFFF"></rect>
+      <rect x="55" y="50" width="22" height="100" rx="4" fill="#16231C"></rect>
+      <rect x="123" y="50" width="22" height="100" rx="4" fill="#16231C"></rect>
+      <line x1="68" y1="58" x2="132" y2="142" stroke="{{accent}}" stroke-width="24" stroke-linecap="square"></line>
+    </svg>
+    <span class="card-label">Reversed, auf Dunkel</span>
+  </div>
+
+  <div>
+    <div class="row" style="background:#FFFFFF; border-radius:18px; padding:20px;">
+      <div class="size-frame">
+        <svg width="64" height="64" viewBox="0 0 200 200">
+          <rect x="10" y="10" width="180" height="180" rx="40" fill="#16231C"></rect>
+          <rect x="53" y="48" width="25" height="104" rx="5" fill="#FFFFFF"></rect>
+          <rect x="122" y="48" width="25" height="104" rx="5" fill="#FFFFFF"></rect>
+          <line x1="68" y1="58" x2="132" y2="142" stroke="{{accent}}" stroke-width="27" stroke-linecap="square"></line>
+        </svg>
+        <span class="card-label">64px</span>
+      </div>
+      <div class="size-frame">
+        <svg width="32" height="32" viewBox="0 0 200 200">
+          <rect x="10" y="10" width="180" height="180" rx="40" fill="#16231C"></rect>
+          <rect x="51" y="46" width="28" height="108" rx="6" fill="#FFFFFF"></rect>
+          <rect x="121" y="46" width="28" height="108" rx="6" fill="#FFFFFF"></rect>
+          <line x1="68" y1="58" x2="132" y2="142" stroke="{{accent}}" stroke-width="30" stroke-linecap="square"></line>
+        </svg>
+        <span class="card-label">32px</span>
+      </div>
+      <div class="size-frame">
+        <svg width="16" height="16" viewBox="0 0 200 200">
+          <rect x="10" y="10" width="180" height="180" rx="40" fill="#16231C"></rect>
+          <rect x="49" y="44" width="31" height="112" rx="7" fill="#FFFFFF"></rect>
+          <rect x="120" y="44" width="31" height="112" rx="7" fill="#FFFFFF"></rect>
+          <line x1="68" y1="58" x2="132" y2="142" stroke="{{accent}}" stroke-width="34" stroke-linecap="square"></line>
+        </svg>
+        <span class="card-label">16px</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"accent":{"editor":"color","default":"#1E9E5C","options":["#1E9E5C","#17824B","#34C67F"]}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#1E9E5C' };
+  }
+}
+</script>
+</body>
+</html>

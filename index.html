@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Neural Academy: KI-natives Mathe-Nachhilfe-Institut</title>
 <meta name="description" content="The Neural Academy verbindet menschliches Tutoring mit einer persönlichen KI-Wissensdatenbank. Schüler:innen laden ihr Material hoch, die KI stellt Rückfragen statt Lösungen.">
+<link rel="icon" type="image/svg+xml" href="assets/logo-icon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;800;900&family=Inter:wght@300;400;600;900&display=swap" rel="stylesheet">
@@ -220,10 +221,11 @@
     text-decoration: none;
     color: var(--text-primary);
     display: flex;
-    align-items: baseline;
-    gap: 4px;
+    align-items: center;
+    gap: var(--space-2);
   }
   .brand .accent { color: var(--institut-green); }
+  .brand img { display: block; }
   .topbar-links { display: none; gap: var(--space-6); }
   .topbar-link {
     font-family: var(--font-system);
@@ -379,7 +381,7 @@
 
 <nav class="topbar">
   <div class="wrap" style="display:flex; align-items:center; justify-content:space-between; width:100%;">
-    <a href="#top" class="brand">The Neural <span class="accent">Academy</span></a>
+    <a href="#top" class="brand"><img src="assets/logo-icon.svg" alt="" width="32" height="32">The Neural <span class="accent">Academy</span></a>
     <div class="topbar-links">
       <a class="topbar-link" href="#methode">Methode</a>
       <a class="topbar-link" href="#ablauf">Second Brain</a>
@@ -483,7 +485,7 @@
 <footer>
   <div class="wrap footer-grid">
     <div>
-      <a href="#top" class="brand">The Neural <span class="accent">Academy</span></a>
+      <a href="#top" class="brand"><img src="assets/logo-icon.svg" alt="" width="32" height="32">The Neural <span class="accent">Academy</span></a>
       <p class="quiet" style="margin-top: var(--space-2);">KI-natives Mathe-Nachhilfe-Institut.</p>
     </div>
     <div class="footer-links">

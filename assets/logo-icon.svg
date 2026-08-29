@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="The Neural Academy">
+  <rect x="10" y="10" width="180" height="180" rx="40" fill="#16231C"/>
+  <rect x="55" y="50" width="22" height="100" rx="4" fill="#FFFFFF"/>
+  <rect x="123" y="50" width="22" height="100" rx="4" fill="#FFFFFF"/>
+  <line x1="68" y1="58" x2="132" y2="142" stroke="#1E9E5C" stroke-width="24" stroke-linecap="square"/>
+</svg>
