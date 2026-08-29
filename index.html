@@ -25,6 +25,7 @@
         <span id="theme-icon">🌙</span>
       </button>
       <a class="btn-secondary" href="https://web-production-b1ad9.up.railway.app/login">Login</a>
+      <a class="btn-primary" href="https://web-production-b1ad9.up.railway.app/demo">Demo starten</a>
     </div>
   </div>
 </nav>
@@ -40,8 +41,7 @@
       </div>
       <div class="cta-panel">
         <p>Wir testen gerade unsere intelligente Bibliothek sowie unseren Lernansatz mit ersten Schülern. Dafür vergeben wir zum Schuljahresbeginn bis zu 3 kostenlose Nachhilfestunden an die ersten 20 Schüler:innen mit erfahrenen Lehrern, um Feedback zu unserer neuen Plattform zu sammeln.</p>
-        <!-- TODO: echten Calendly-Link eintragen -->
-        <a class="btn-primary" href="#calendly-todo">Jetzt Termin für die erste kostenlose Stunde buchen</a>
+        <a class="btn-primary" href="https://calendly.com/jonas-hunglinger/nachhilfe-probestunde" target="_blank" rel="noopener">Jetzt Termin für die erste kostenlose Stunde buchen</a>
       </div>
     </div>
   </section>
@@ -81,12 +81,8 @@
       <h2 class="title2" style="font-size: var(--text-large-title);">Gründer</h2>
 
       <div class="team-card">
-        <div class="team-photo" aria-hidden="true">
-          <!-- Platzhalter, echtes Foto folgt -->
-          <svg viewBox="0 0 100 100" width="100%" height="100%">
-            <circle cx="50" cy="38" r="18" fill="currentColor"></circle>
-            <path d="M18 92c0-20 14-32 32-32s32 12 32 32" fill="currentColor"></path>
-          </svg>
+        <div class="team-photo">
+          <img src="assets/jonas.jpg" alt="Jonas, Gründer von The Neural Academy" width="120" height="120">
         </div>
         <div>
           <h3>Jonas</h3>
@@ -101,8 +97,22 @@
     <div class="wrap">
       <h2 class="title2" style="font-size: var(--text-large-title);">Mit wem richtet sich unser aktuelles Angebot?</h2>
       <p class="body-text">Wir suchen Schüler:innen ab der achten Jahrgangsstufe aller Schularten, die sich für Unterstützung im Fach Mathematik interessieren. Hierbei ist es egal, ob Not am Mann ist oder es um den Unterschied zwischen 13 und 15 Punkten geht.</p>
-      <!-- TODO: echten Link für Fächer-Benachrichtigung eintragen -->
-      <p class="body-text" style="margin-top: var(--space-4);">Wir werden bald auch weitere Fächer anbieten. <a href="#benachrichtigen-todo" style="color: var(--institut-green); font-weight: 600; text-decoration: underline;">Hier</a> kannst du dich benachrichtigen lassen, sobald das der Fall ist.</p>
+      <p class="body-text" style="margin-top: var(--space-4);">Wir werden bald auch weitere Fächer anbieten. Sag uns, woran du Interesse hast, dann melden wir uns, sobald es so weit ist.</p>
+
+      <form id="interest-form" class="interest-form">
+        <div class="interest-checkboxes">
+          <label class="checkbox-label"><input type="checkbox" name="physik"> Physik</label>
+          <label class="checkbox-label"><input type="checkbox" name="latein"> Latein</label>
+          <label class="checkbox-label"><input type="checkbox" name="englisch"> Englisch</label>
+          <label class="checkbox-label"><input type="checkbox" name="deutsch"> Deutsch</label>
+          <label class="checkbox-label"><input type="checkbox" name="nebenfaecher"> Alle Nebenfächer</label>
+        </div>
+        <div class="interest-email-row">
+          <input type="email" id="interest-email" placeholder="Deine E-Mail-Adresse" required>
+          <button type="submit" class="btn-primary">Benachrichtigen</button>
+        </div>
+        <p class="quiet" id="interest-status" style="margin-top: var(--space-3);"></p>
+      </form>
     </div>
   </section>
 
@@ -110,8 +120,7 @@
     <div class="wrap">
       <div class="cta-closing">
         <p>Bereit für die erste kostenlose Stunde?</p>
-        <!-- TODO: echten Calendly-Link eintragen -->
-        <a class="btn-primary" href="#calendly-todo">Jetzt Termin für die erste kostenlose Stunde buchen</a>
+        <a class="btn-primary" href="https://calendly.com/jonas-hunglinger/nachhilfe-probestunde" target="_blank" rel="noopener">Jetzt Termin für die erste kostenlose Stunde buchen</a>
       </div>
     </div>
   </section>
@@ -149,6 +158,40 @@
       });
     }
   })();
+
+  const interestForm = document.getElementById('interest-form');
+  if (interestForm) {
+    interestForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const status = document.getElementById('interest-status');
+      const email = document.getElementById('interest-email').value.trim();
+      const payload = {
+        email,
+        physik: interestForm.physik.checked,
+        latein: interestForm.latein.checked,
+        englisch: interestForm.englisch.checked,
+        deutsch: interestForm.deutsch.checked,
+        nebenfaecher: interestForm.nebenfaecher.checked,
+      };
+      status.textContent = 'Wird gesendet.';
+      try {
+        const res = await fetch('https://web-production-b1ad9.up.railway.app/interest-signup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const data = await res.json();
+        if (data.error) {
+          status.textContent = data.error;
+        } else {
+          status.textContent = 'Danke, wir melden uns.';
+          interestForm.reset();
+        }
+      } catch (err) {
+        status.textContent = 'Das hat nicht geklappt. Bitte später erneut versuchen.';
+      }
+    });
+  }
 </script>
 
 </body>

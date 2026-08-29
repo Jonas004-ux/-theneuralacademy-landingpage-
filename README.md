@@ -25,30 +25,39 @@ neu erfinden.
 
 ## Offene TODOs vor dem Launch
 
-1. **Calendly-Link** (`#calendly-todo`, zwei Stellen: CTA-Panel im Hero + Schluss-CTA
-   vor dem Footer): noch kein echter Link hinterlegt. Beide Buttons ("Jetzt Termin
-   für die erste kostenlose Stunde buchen") verlinken aktuell auf nichts.
-2. **Fächer-Benachrichtigung-Link** (`#benachrichtigen-todo`, Für-wen-Section): noch
-   kein Ziel — es existiert noch kein Mechanismus, über den sich Interessierte für
-   weitere Fächer benachrichtigen lassen können.
-3. **Kontakt**: es gibt aktuell keinen Kontakt-Link mehr auf der Seite (Footer wurde
+1. **Migration ausstehend**: `../tutoring_second_brain/supabase/migration_interest_signups.sql`
+   muss einmal im Supabase-SQL-Editor laufen (legt `subject_interest_signups` an),
+   sonst wirft das Fächer-Interesse-Formular unten auf der Seite einen 500er, sobald
+   jemand absendet.
+2. **Kontakt**: es gibt aktuell keinen Kontakt-Link mehr auf der Seite (Footer wurde
    auf Startseite/Impressum/Datenschutz/Login reduziert). Sobald eine echte
    Kontakt-E-Mail existiert, prüfen ob sie irgendwo rein soll.
-4. **Impressum / Datenschutz** (`impressum.html`, `datenschutz.html`): nur Platzhalter
+3. **Impressum / Datenschutz** (`impressum.html`, `datenschutz.html`): nur Platzhalter
    (`[Platzhalter: ...]`), rechtlich noch nicht verwendbar. Echte Angaben (Name,
    Anschrift, Verantwortlicher, Datenverarbeitung) müssen vor dem Launch rein.
-5. **Gründer-Foto** (`index.html#team`): SVG-Platzhalter, echtes Foto fehlt noch. Der
-   Bio-Text ist bereits echt (von Jonas diktiert).
 
-Erledigt: Login-Button (Nav + Footer) zeigt auf
-`https://web-production-b1ad9.up.railway.app/login`. Der Demo-Button im Hero zeigt
-auf `https://web-production-b1ad9.up.railway.app/demo` — ein öffentlicher,
-passwortloser Einstieg in einen dedizierten `is_demo`-Schüler-Account (echtes
-Testmaterial zu Ableitungsregeln + bedingter Wahrscheinlichkeit, echter sokratischer
-Chat). Upload/Verarbeiten/Pinnwand-Erstellen sind für diesen Account serverseitig
-gesperrt, der Chat ist rate-limitiert (15 Nachrichten/Session, 200/Tag). Details und
-Code dazu in `../tutoring_second_brain/app.py` (`_reject_if_demo`, `/demo`-Route) und
+Erledigt: Login- und Demo-Button (Nav) zeigen auf
+`https://web-production-b1ad9.up.railway.app/login` bzw. `/demo` — Demo ist ein
+öffentlicher, passwortloser Einstieg in einen dedizierten `is_demo`-Schüler-Account
+(echtes Testmaterial zu Ableitungsregeln + bedingter Wahrscheinlichkeit, echter
+sokratischer Chat), serverseitig schreibgeschützt und rate-limitiert (15
+Nachrichten/Session, 200/Tag). Details in `../tutoring_second_brain/app.py`
+(`_reject_if_demo`, `/demo`-Route) und
 `../tutoring_second_brain/supabase/migration_demo.sql`.
+
+Beide Calendly-Buttons ("Jetzt Termin für die erste kostenlose Stunde buchen") zeigen
+auf `https://calendly.com/jonas-hunglinger/nachhilfe-probestunde`.
+
+Gründer-Foto ist ein echtes Foto (`assets/jonas.jpg`), kein Platzhalter mehr.
+
+Das Fächer-Interesse-Formular (Für-wen-Section) postet an
+`https://web-production-b1ad9.up.railway.app/interest-signup` (neue Route in
+`../tutoring_second_brain/app.py`, CORS eng auf die Landingpage-Origins beschränkt,
+Tages-Limit 100 Einreichungen). Speichert E-Mail + angekreuzte Fächer (Physik,
+Latein, Englisch, Deutsch, Alle Nebenfächer) in der Supabase-Tabelle
+`subject_interest_signups` — sichtbar für Tutor-Accounts über den normalen
+Supabase-Table-Editor oder eine künftige Tutor-Ansicht, dafür existiert aktuell noch
+keine UI im Tool selbst.
 
 ## Logo
 
@@ -65,15 +74,14 @@ oder ältere Favicon-Fallbacks) — bei Bedarf ergänzen.
 
 `index.html`: Hero (Headline + Lede + Demo-Button + großes CTA-Panel mit
 Calendly-Button) → Ansatz ("Unsere intelligente Bibliothek", 3-Schritt-Ablauf,
-sokratisches Grundprinzip) → Gründer (Jonas, echter Bio-Text) → Für wen
-(Fach/Jahrgangsstufe als Fließtext) → Schluss-CTA (nochmal der Calendly-Button) →
-Footer.
+sokratisches Grundprinzip) → Gründer (Jonas, echtes Foto + echter Bio-Text) → Für wen
+(Fach/Jahrgangsstufe als Fließtext + Fächer-Interesse-Formular) → Schluss-CTA
+(nochmal der Calendly-Button) → Footer.
 
-Kopf- und Fußzeile bewusst auf das Minimum reduziert: nur noch Impressum,
-Datenschutz, Login sowie ein Link zur Startseite (Logo bzw. "Startseite" im Footer).
-Kein Demo-Button mehr im Nav — der Demo-Einstieg lebt jetzt ausschließlich als
-Primary-Button im Hero. Keine Eyebrow-Labels mehr über den Section-Headlines (bewusst
-entfernt, gilt für alle Sections gleich).
+Kopf- und Fußzeile auf Impressum/Datenschutz/Login/Demo (Nav) bzw.
+Startseite/Impressum/Datenschutz/Login (Footer) reduziert. Keine In-Page-Anchor-Links
+und keine Eyebrow-Labels mehr über den Section-Headlines (bewusst entfernt, gilt für
+alle Sections gleich).
 
 "Second Brain" wurde als Produktname überall (Landingpage + Tool-Frontend in
 `../tutoring_second_brain/templates/_student_base.html`) durch "Intelligente
