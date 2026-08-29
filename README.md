@@ -17,22 +17,19 @@ neu erfinden.
 
 ## Offene TODOs vor dem Launch
 
-Im Code mit `<!-- TODO: ... -->`-Kommentaren markiert:
-
 1. **Domain**: noch nicht registriert. Sobald entschieden, `<title>`, Meta-Tags und
-   alle internen Verweise entsprechend anpassen.
-2. **Login-Button** (`#login-todo`, Nav + Footer): muss auf die echte Login-Route der
-   deployten `tutoring_second_brain`-App zeigen. Aktuell existiert noch keine
-   öffentliche Railway-/Domain-URL für das Tool, dieser Wert war zum Zeitpunkt des
-   Bauens dieser Seite nicht bekannt.
-3. **Demo-Zugang** (`#demo-todo`, Abschnitt „Live-Demo"): verlinkt aktuell auf nichts.
-   Die Demo selbst existiert noch nicht. Das ist eine Architekturentscheidung im
-   `tutoring_second_brain`-Repo (`auth.py`/`app.py`), nicht Teil dieses Projekts:
-   entweder ein dedizierter Demo-Schüler-Account mit serverseitig gesperrten
-   Upload-/Process-Routen, oder ein separater schreibgeschützter Snapshot. Muss mit
-   Jonas geklärt werden, bevor daran gebaut wird, insbesondere weil das nicht-
-   verhandelbare sokratische Chat-Verhalten dabei erhalten bleiben muss.
-4. **Kontakt** (`#kontakt-todo`, Footer): noch keine echte Kontakt-E-Mail hinterlegt.
+   die Railway-URLs unten durch die echte Domain ersetzen.
+2. **Kontakt** (`#kontakt-todo`, Footer): noch keine echte Kontakt-E-Mail hinterlegt.
+
+Erledigt: Login-Button (Nav + Footer) zeigt auf
+`https://web-production-b1ad9.up.railway.app/login`. Der Demo-Button zeigt auf
+`https://web-production-b1ad9.up.railway.app/demo` — ein öffentlicher, passwortloser
+Einstieg in einen dedizierten `is_demo`-Schüler-Account (echtes Testmaterial zu
+Ableitungsregeln + bedingter Wahrscheinlichkeit, echter sokratischer Chat).
+Upload/Verarbeiten/Pinnwand-Erstellen sind für diesen Account serverseitig gesperrt,
+der Chat ist rate-limitiert (15 Nachrichten/Session, 200/Tag). Details und Code dazu
+in `../tutoring_second_brain/app.py` (`_reject_if_demo`, `/demo`-Route) und
+`../tutoring_second_brain/supabase/migration_demo.sql`.
 
 ## Logo
 
