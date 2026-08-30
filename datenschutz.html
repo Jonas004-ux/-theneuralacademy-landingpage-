@@ -21,9 +21,6 @@
       <a class="topbar-link" href="datenschutz.html">Datenschutz</a>
     </div>
     <div class="topbar-actions">
-      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Darstellung umschalten">
-        <span id="theme-icon">🌙</span>
-      </button>
       <a class="btn-secondary" href="https://web-production-b1ad9.up.railway.app/login">Login</a>
       <a class="btn-primary" href="https://web-production-b1ad9.up.railway.app/demo">Demo starten</a>
     </div>
@@ -40,17 +37,17 @@
 
     <h2>Welche Daten wir erheben</h2>
     <p class="body-text">
-      Über das Interesse-Formular auf dieser Seite erheben wir deine E-Mail-Adresse sowie die von dir
-      angekreuzten Fächer. Nutzt du das Tutoring-Tool ("Intelligente Bibliothek"), erheben wir außerdem:
-      von dir hochgeladenes Unterrichtsmaterial (z. B. Fotos, PDFs, Texte), die Inhalte deiner
+      Über das Interesse-Formular auf dieser Seite erheben wir Ihre E-Mail-Adresse sowie die von Ihnen
+      angekreuzten Fächer. Nutzen Sie das Tutoring-Tool ("Intelligente Bibliothek"), erheben wir außerdem:
+      von Ihnen hochgeladenes Unterrichtsmaterial (z. B. Fotos, PDFs, Texte), die Inhalte Ihrer
       Chat-Unterhaltungen mit der KI sowie technische Server-Logs (z. B. IP-Adresse, Zeitpunkt des
       Zugriffs), die beim Betrieb der Website und des Tools automatisch anfallen.
     </p>
 
     <h2>Zweck und Rechtsgrundlage der Verarbeitung</h2>
     <p class="body-text">
-      Die Daten aus dem Interesse-Formular verarbeiten wir auf Grundlage deiner Einwilligung
-      (Art. 6 Abs. 1 lit. a DSGVO), um dich zu kontaktieren, sobald das gewünschte Fach verfügbar ist.
+      Die Daten aus dem Interesse-Formular verarbeiten wir auf Grundlage Ihrer Einwilligung
+      (Art. 6 Abs. 1 lit. a DSGVO), um Sie zu kontaktieren, sobald das gewünschte Fach verfügbar ist.
       Hochgeladenes Material und Chat-Inhalte verarbeiten wir zur Erbringung der Nachhilfeleistung bzw.
       zur Durchführung vorvertraglicher Maßnahmen (Art. 6 Abs. 1 lit. b DSGVO) — die KI nutzt sie, um
       eine persönliche Wissensdatenbank aufzubauen und im Chat darauf Bezug zu nehmen. Server-Logs
@@ -76,16 +73,16 @@
     <h2>Speicherdauer und Löschung</h2>
     <p class="body-text">
       Wir speichern Daten grundsätzlich so lange, wie die Nutzung unseres Tools fortbesteht, damit die
-      persönliche Wissensdatenbank und der Chatverlauf erhalten bleiben. Eine Löschung deiner Daten kannst
-      du jederzeit veranlassen, indem du uns unter oben genannter E-Mail-Adresse kontaktierst.
+      persönliche Wissensdatenbank und der Chatverlauf erhalten bleiben. Eine Löschung Ihrer Daten können
+      Sie jederzeit veranlassen, indem Sie uns unter oben genannter E-Mail-Adresse kontaktieren.
     </p>
 
     <h2>Rechte der Betroffenen</h2>
     <p class="body-text">
-      Du hast das Recht auf Auskunft über die zu deiner Person gespeicherten Daten (Art. 15 DSGVO), auf
+      Sie haben das Recht auf Auskunft über die zu Ihrer Person gespeicherten Daten (Art. 15 DSGVO), auf
       Berichtigung unrichtiger Daten (Art. 16 DSGVO), auf Löschung (Art. 17 DSGVO), auf Einschränkung der
       Verarbeitung (Art. 18 DSGVO), auf Datenübertragbarkeit (Art. 20 DSGVO) sowie auf Widerspruch gegen
-      die Verarbeitung (Art. 21 DSGVO). Außerdem hast du das Recht, dich bei einer
+      die Verarbeitung (Art. 21 DSGVO). Außerdem haben Sie das Recht, sich bei einer
       Datenschutz-Aufsichtsbehörde zu beschweren, zum Beispiel beim Bayerischen Landesamt für
       Datenschutzaufsicht.
     </p>
@@ -106,24 +103,6 @@
   </div>
 </footer>
 
-<script>
-  function toggleTheme() {
-    const isDark = document.documentElement.classList.toggle('dark');
-    document.getElementById('theme-icon').textContent = isDark ? '☀️' : '🌙';
-    try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch (e) {}
-  }
-  (function () {
-    let stored = null;
-    try { stored = localStorage.getItem('theme'); } catch (e) {}
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (stored === 'dark' || (!stored && prefersDark)) {
-      document.documentElement.classList.add('dark');
-      document.addEventListener('DOMContentLoaded', function () {
-        document.getElementById('theme-icon').textContent = '☀️';
-      });
-    }
-  })();
-</script>
 
 </body>
 </html>

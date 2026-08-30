@@ -1,4 +1,7 @@
+/* Dark ist die einzige Variante der Seite — kein Light-Mode, kein Toggle. */
 :root {
+  color-scheme: dark;
+
   --font-headline: 'Outfit', 'Poppins', Arial, sans-serif;
   --font-system:   'Inter', -apple-system, system-ui, Arial, sans-serif;
 
@@ -26,27 +29,23 @@
   --space-20: 80px;
   --space-24: 96px;
 
-  --institut-green:       #1E9E5C;
-  --institut-green-hover: #17824B;
-  --institut-green-tint:  rgba(30,158,92,0.08);
+  --institut-green:      #34C67F;
+  --institut-green-tint: rgba(52,198,127,0.12);
 
-  --ink:      #16231C;
-  --grey-44:  #66716B;
-  --grey-86:  #DCE8E0;
-  --grey-96:  #EEF5F0;
-  --bg-page:      #F5FAF7;
-  --bg-surface:   #FFFFFF;
-  --bg-inset:     var(--grey-96);
+  --ink:          #FFFFFF;
+  --bg-page:      #0E1712;
+  --bg-surface:   #17221C;
+  --bg-inset:     #26332B;
 
-  --text-primary:   var(--ink);
-  --text-secondary: rgba(22,35,28,0.65);
-  --text-muted:     rgba(22,35,28,0.50);
-  --text-tertiary:  rgba(22,35,28,0.40);
-  --text-inverse:   #FFFFFF;
+  --text-primary:   #FFFFFF;
+  --text-secondary: rgba(235,245,240,0.6);
+  --text-muted:     rgba(235,245,240,0.4);
+  --text-tertiary:  rgba(235,245,240,0.28);
+  --text-inverse:   #16231C;
 
-  --border:          var(--grey-86);
-  --border-hairline: rgba(22,35,28,0.07);
-  --border-divider:  rgba(22,35,28,0.05);
+  --border:          rgba(255,255,255,0.12);
+  --border-hairline: rgba(255,255,255,0.1);
+  --border-divider:  rgba(255,255,255,0.07);
 
   --color-warning: #F2A93B;
   --color-info:    var(--ink);
@@ -59,43 +58,20 @@
   --radius-none: 0;
   --radius-full: 9999px;
 
-  --hover-state:   rgba(22,35,28,0.04);
-  --pressed-state: rgba(22,35,28,0.08);
+  --hover-state:   rgba(255,255,255,0.06);
+  --pressed-state: rgba(255,255,255,0.10);
   --focus-ring:    var(--institut-green);
 
-  --shadow-xs: 0 1px 2px rgba(22,35,28,0.05);
-  --shadow-sm: 0 2px 8px rgba(22,35,28,0.07), 0 1px 3px rgba(22,35,28,0.04);
-  --shadow-md: 0 4px 16px rgba(22,35,28,0.09), 0 2px 6px rgba(22,35,28,0.04);
-  --shadow-lg: 0 8px 32px rgba(22,35,28,0.11), 0 4px 12px rgba(22,35,28,0.05);
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.28), 0 1px 3px rgba(0,0,0,0.16);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.32), 0 2px 6px rgba(0,0,0,0.16);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.36), 0 4px 12px rgba(0,0,0,0.2);
 
   --ease-spring: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --ease-out:    cubic-bezier(0, 0, 0.2, 1);
   --dur-instant: 100ms;
   --dur-fast:    200ms;
   --dur-normal:  300ms;
-}
-
-.dark, [data-theme="dark"] {
-  --bg-page:      #0E1712;
-  --bg-surface:   #17221C;
-  --bg-inset:     #26332B;
-
-  --text-primary:   #FFFFFF;
-  --text-secondary: rgba(235,245,240,0.6);
-  --text-muted:     rgba(235,245,240,0.4);
-  --text-tertiary:  rgba(235,245,240,0.28);
-
-  --border:          rgba(255,255,255,0.12);
-  --border-hairline: rgba(255,255,255,0.1);
-  --border-divider:  rgba(255,255,255,0.07);
-
-  --hover-state:   rgba(255,255,255,0.06);
-  --pressed-state: rgba(255,255,255,0.10);
-
-  --ink: #FFFFFF;
-  --text-inverse: #16231C;
-  --institut-green: #34C67F;
-  --institut-green-tint: rgba(52,198,127,0.12);
 }
 
 * { box-sizing: border-box; }
@@ -249,17 +225,6 @@ a { color: inherit; }
   .topbar-links { display: flex; }
 }
 
-.theme-toggle {
-  background: var(--bg-surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-full);
-  width: 40px; height: 40px;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer;
-  font-size: 16px;
-  box-shadow: var(--shadow-xs);
-}
-
 /* ── Sections ── */
 section { padding: var(--space-24) 0; }
 .hero { padding-top: var(--space-16); padding-bottom: var(--space-20); }
@@ -344,7 +309,7 @@ section { padding: var(--space-24) 0; }
   color: var(--ink);
   flex-shrink: 0;
 }
-.cta-panel .btn-primary:hover { background: var(--institut-green-hover); color: var(--text-inverse); }
+.cta-panel .btn-primary:hover { opacity: 0.88; }
 
 /* Schlichter Schluss-CTA am Seitenende, im normalen Seiten-Look. */
 .cta-closing {
