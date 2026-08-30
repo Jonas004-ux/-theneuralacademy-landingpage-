@@ -25,14 +25,17 @@ neu erfinden.
 
 ## Offene TODOs vor dem Launch
 
-1. **AVVs ausstehend**: Impressum/Datenschutz nennen Anthropic und Supabase bereits als
-   Auftragsverarbeiter (Server in den USA), die eigentlichen Auftragsverarbeitungs-
-   verträge dazu sind laut Jonas noch in Arbeit.
-2. **Speicherdauer nochmal gegenchecken**: `datenschutz.html` sagt aktuell "so lange
+1. **Speicherdauer nochmal gegenchecken**: `datenschutz.html` sagt aktuell "so lange
    die Nutzung fortbesteht" (bewusst nicht "unbegrenzt", sondern an aktive Nutzung
    geknüpft — Kompromiss zwischen Jonas' Wunsch nach dauerhafter Aufbewahrung der
    Schülerinhalte und einer sauberen datenschutzrechtlichen Formulierung). Bei Bedarf
    anpassen, falls sich das Modell ändert (z. B. feste Frist nach Vertragsende).
+
+Erledigt: AVVs mit Anthropic und Supabase sind automatisch Teil der jeweiligen
+Nutzungsbedingungen, keine separate Unterschrift nötig (Supabase bestätigt das explizit
+im Dashboard unter Organization Settings → Legal Documents: "No separate signed DPA is
+needed"). Volltexte: [Anthropic-DPA](https://www.anthropic.com/legal/data-processing-addendum),
+[Supabase-DPA](https://supabase.com/legal/customer-resources/data-processing-addendum).
 3. **Rechtstexte sind fachlich fundiert, aber keine Rechtsberatung**: vor einem
    breiteren Go-Live einmal von einer Gründungsberatung/Steuerberater gegenchecken
    lassen, insbesondere wegen Minderjährigen-Einwilligung (Art. 8 DSGVO) und der
