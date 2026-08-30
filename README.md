@@ -25,16 +25,18 @@ neu erfinden.
 
 ## Offene TODOs vor dem Launch
 
-1. **Migration ausstehend**: `../tutoring_second_brain/supabase/migration_interest_signups.sql`
-   muss einmal im Supabase-SQL-Editor laufen (legt `subject_interest_signups` an),
-   sonst wirft das Fächer-Interesse-Formular unten auf der Seite einen 500er, sobald
-   jemand absendet.
-2. **Kontakt**: es gibt aktuell keinen Kontakt-Link mehr auf der Seite (Footer wurde
-   auf Startseite/Impressum/Datenschutz/Login reduziert). Sobald eine echte
-   Kontakt-E-Mail existiert, prüfen ob sie irgendwo rein soll.
-3. **Impressum / Datenschutz** (`impressum.html`, `datenschutz.html`): nur Platzhalter
-   (`[Platzhalter: ...]`), rechtlich noch nicht verwendbar. Echte Angaben (Name,
-   Anschrift, Verantwortlicher, Datenverarbeitung) müssen vor dem Launch rein.
+1. **AVVs ausstehend**: Impressum/Datenschutz nennen Anthropic und Supabase bereits als
+   Auftragsverarbeiter (Server in den USA), die eigentlichen Auftragsverarbeitungs-
+   verträge dazu sind laut Jonas noch in Arbeit.
+2. **Speicherdauer nochmal gegenchecken**: `datenschutz.html` sagt aktuell "so lange
+   die Nutzung fortbesteht" (bewusst nicht "unbegrenzt", sondern an aktive Nutzung
+   geknüpft — Kompromiss zwischen Jonas' Wunsch nach dauerhafter Aufbewahrung der
+   Schülerinhalte und einer sauberen datenschutzrechtlichen Formulierung). Bei Bedarf
+   anpassen, falls sich das Modell ändert (z. B. feste Frist nach Vertragsende).
+3. **Rechtstexte sind fachlich fundiert, aber keine Rechtsberatung**: vor einem
+   breiteren Go-Live einmal von einer Gründungsberatung/Steuerberater gegenchecken
+   lassen, insbesondere wegen Minderjährigen-Einwilligung (Art. 8 DSGVO) und der
+   Frage Gewerbe- vs. Freiberuflichkeit.
 
 Erledigt: Login- und Demo-Button (Nav) zeigen auf
 `https://web-production-b1ad9.up.railway.app/login` bzw. `/demo` — Demo ist ein
