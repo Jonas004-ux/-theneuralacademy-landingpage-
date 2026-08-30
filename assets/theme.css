@@ -198,7 +198,8 @@ a { color: inherit; }
 
 /* ── Nav ── */
 .topbar {
-  height: 72px;
+  min-height: 72px;
+  padding: var(--space-3) 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -208,6 +209,16 @@ a { color: inherit; }
   background: color-mix(in srgb, var(--bg-page) 88%, transparent);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border-hairline);
+}
+/* Layoutet Logo/Links/Actions; ersetzt die frühere Inline-Style-Version, die auf
+   schmalen Screens nicht umbrach und Buttons ineinander verschachtelt hat. */
+.topbar-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+  row-gap: var(--space-3);
 }
 .brand {
   font-family: var(--font-headline);
@@ -332,7 +343,6 @@ section { padding: var(--space-24) 0; }
   background: var(--institut-green);
   color: var(--ink);
   flex-shrink: 0;
-  white-space: nowrap;
 }
 .cta-panel .btn-primary:hover { background: var(--institut-green-hover); color: var(--text-inverse); }
 
